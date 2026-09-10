@@ -29,8 +29,9 @@ SELECT c.name
 FROM customers c 
 LEFT JOIN orders o ON c.customer_id = o.customer_id 
 WHERE o.order_id IS NULL;
+```
 
-I have finished the concepts like: 
+### I have finished the concepts like: 
 1. Joins - Inner join, Left join, Right join, Full outer join
 2. Aggregation - COUNT, SUM, AVG, MIN, MAX
 3. Group By Clause.
