@@ -1,657 +1,410 @@
-# 16-Week Data Engineering Roadmap
-## September 7 – December 27, 2026
+# 18-Week Combined Data Engineering Roadmap
+## Snowflake + Databricks/PySpark — Based on 22,000 Real Job Ads
+### September 14, 2026 – January 17, 2027
 
-**Stack:** Recipe A — Industry Standard  
+**Source:** Data with Baraa — *Data Engineer Roadmap: Built From 22,000 Real Job Ads*  
+**Insight:** Job ads demand BOTH Snowflake AND Databricks skills. Don't choose — learn both.  
 **Commitment:** 25 hours/week  
-**Goal:** Job-ready Data Engineer by December 31, 2026
+**Goal:** Job-ready Data Engineer by January 31, 2027
+
+---
+
+## Why Combined?
+
+The video analyzed **22,000 real job ads** across 4,000+ companies. The data shows:
+
+| Finding | What It Means for You |
+|---------|----------------------|
+| **Both Snowflake AND Databricks appear** in job postings | Learning only one limits your applications by 40–50% |
+| **PySpark is the #1 big data skill** requested | You need it for Databricks, EMR, and any large-scale processing |
+| **dbt is the standard transformation tool** | Works on Snowflake AND Databricks — learn once, use everywhere |
+| **Two "tech stacks" dominate** | Stack A: Snowflake + dbt. Stack B: Databricks + PySpark. You need both. |
+| **SQL is non-negotiable** | 90%+ of job ads mention SQL. It's the foundation of everything. |
+
+**This roadmap combines both dominant stacks into one learning path.**
 
 ---
 
 ## Table of Contents
 
-- [Week 1: SQL Foundations + Python API Script](#week-1)
-- [Week 2: Snowflake + Advanced SQL](#week-2)
-- [Week 3: Docker + Git + Project Polish](#week-3)
-- [Week 4: Apache Iceberg + Data Modeling](#week-4)
-- [Week 5: Airbyte — Ingestion Engineering](#week-5)
-- [Week 6: dbt Core — Transformation](#week-6)
-- [Week 7: dbt Advanced + Airbyte Integration](#week-7)
-- [Week 8: Great Expectations — Data Quality](#week-8)
-- [Week 9: Apache Airflow — Orchestration](#week-9)
-- [Week 10: Airflow Production + Cosmos](#week-10)
-- [Week 11: Terraform — Infrastructure as Code](#week-11)
-- [Week 12: Streaming + CI/CD](#week-12)
-- [Week 13: Capstone Design](#week-13)
-- [Week 14: Capstone Build](#week-14)
-- [Week 15: Capstone Polish + Blog](#week-15)
-- [Week 16: Portfolio + Job Applications](#week-16)
+- [Phase 1: Python + SQL Foundations (Weeks 1–2)](#phase-1)
+- [Phase 2: PySpark Foundations (Weeks 3–4)](#phase-2)
+- [Phase 3: Snowflake + Databricks Side-by-Side (Weeks 5–7)](#phase-3)
+- [Phase 4: dbt — The Universal Transformer (Weeks 8–9)](#phase-4)
+- [Phase 5: Ingestion + Orchestration (Weeks 10–11)](#phase-5)
+- [Phase 6: Infrastructure + Data Quality (Weeks 12–13)](#phase-6)
+- [Phase 7: Streaming (Weeks 14–15)](#phase-7)
+- [Phase 8: Capstone + Job Hunt (Weeks 16–18)](#phase-8)
 
 ---
 
-## <a id="week-1"></a>Week 1: SQL Foundations + Python API Script
-**Dates:** September 7 – 13  
-**Theme:** Close the SQL gap. Build your first data script.
+## <a id="phase-1"></a>Phase 1: Python + SQL Foundations
+### Weeks 1–2: September 14 – 27
 
-### Monday – Wednesday: SQL Crash Course
-| Day | Topics | Hours |
-|-----|--------|-------|
-| Mon | SELECT, WHERE, AND/OR, IN, BETWEEN, ORDER BY, LIMIT | 4 |
-| Tue | INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, NULL handling | 4 |
-| Wed | Aggregation (COUNT, SUM, AVG, GROUP BY, HAVING), Subqueries | 4 |
+**Theme:** You can't build pipelines without speaking the language.
 
-**Deliverable:** `week-01/sql_notes.md` with 7 topics + 3 memory queries + problem log
+### Week 1: Python for Data Engineering
 
-### Thursday – Friday: Python Weather Script
 | Day | Task | Hours |
 |-----|------|-------|
-| Thu | Build `fetch_weather()` with requests, logging, error handling | 4 |
-| Fri | Add `save_to_csv()` with pathlib, csv.DictWriter, argparse | 4 |
+| Mon | `polars` crash course: DataFrames, filters, joins, groupby | 4 |
+| Tue | `pydantic` for data validation + `requests` for APIs | 4 |
+| Wed | Build weather fetcher: API → clean → CSV/Parquet | 4 |
+| Thu | Error handling, logging, `pathlib`, `csv.DictWriter` | 4 |
+| Fri | Dockerize the script: `Dockerfile`, `docker-compose` | 4 |
+| Sat | Write `pytest` tests with `unittest.mock` | 5 |
+| Sun | Push `week-01/` to GitHub | 4 |
 
-**Deliverable:** `week-01/weather.py` — fetches 3 cities, saves to dated CSV
+**Deliverable:** Containerized Python script with tests
 
-### Saturday – Sunday: Docker + Tests
+### Week 2: SQL Mastery
+
 | Day | Task | Hours |
 |-----|------|-------|
-| Sat | Write Dockerfile, requirements.txt, build and run container | 4 |
-| Sun | Write `test_weather.py` with pytest + unittest.mock, format with black | 4 |
+| Mon | SELECT, WHERE, JOINs, NULL handling | 4 |
+| Tue | Aggregation: GROUP BY, HAVING, window functions | 4 |
+| Wed | CTEs, subqueries, LATERAL joins | 4 |
+| Thu | Practice: 15 problems on DataLemur / HackerRank | 4 |
+| Fri | Query optimization: `EXPLAIN`, indexes, execution plans | 4 |
+| Sat | Build ShopStream dataset, write 10 analytical queries | 5 |
+| Sun | Push `week-02/sql_notes.md` | 4 |
 
-**Deliverable:** Dockerized script + passing tests + handwritten notes pushed
-
-### Week 1 Repo Structure
-```
-week-01/
-├── README.md
-├── sql_notes.md
-├── sql_notes_page*.jpg
-├── weather.py
-├── test_weather.py
-├── Dockerfile
-└── requirements.txt
-```
+**Deliverable:** SQL notes with 10+ solved problems + memory queries
 
 ---
 
-## <a id="week-2"></a>Week 2: Snowflake + Advanced SQL
-**Dates:** September 14 – 20  
-**Theme:** Learn the warehouse. Write analytical SQL at scale.
+## <a id="phase-2"></a>Phase 2: PySpark Foundations
+### Weeks 3–4: September 28 – October 11
 
-### Monday: Snowflake Setup
-- Sign up for Snowflake free trial
-- Load TPC-H sample dataset (`SNOWFLAKE_SAMPLE_DATA.TPCH_SF1`)
-- Explore tables: CUSTOMER, ORDERS, LINEITEM, PART, NATION, REGION
-- **Deliverable:** Screenshot of first query results
+**Theme:** PySpark is the #1 big data skill in job ads. Master it before touching cloud platforms.
 
-### Tuesday: Window Functions
-- `ROW_NUMBER() OVER (PARTITION BY ... ORDER BY ...)`
-- `RANK()`, `DENSE_RANK()`
-- `LEAD()`, `LAG()`
-- **Deliverable:** 3 window function queries in Snowflake worksheet
+### Week 3: PySpark Basics
 
-### Wednesday: CTEs (Common Table Expressions)
-- `WITH` clause for multi-step queries
-- Recursive CTEs (basics)
-- **Deliverable:** Complex analytical query using CTEs
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Install PySpark, `SparkSession`, RDDs vs DataFrames | 4 |
+| Tue | DataFrame ops: `select`, `filter`, `withColumn`, `drop` | 4 |
+| Wed | Joins: inner, left, broadcast joins | 4 |
+| Thu | Aggregations: `groupBy`, `agg`, `pivot` | 4 |
+| Fri | Window functions in PySpark: `Window.partitionBy` | 4 |
+| Sat | Practice: Load 1M-row dataset, transform, write Parquet | 5 |
+| Sun | Push `week-03/pyspark_intro.py` | 4 |
 
-### Thursday: Query Optimization
-- `EXPLAIN` and execution plans
-- Micro-partitions, clustering keys
-- Result caching, search optimization
-- **Deliverable:** Cost audit report on a week's query spend
+**Deliverable:** PySpark script that reads, transforms, writes Parquet
 
-### Friday: Snowflake Badge Prep
-- Snowflake Data Engineer badge practice exam
-- Review architecture: warehouses, stages, pipes, streams, tasks
-- **Deliverable:** Practice exam completed
+### Week 4: PySpark Advanced + Optimization
 
-### Saturday – Sunday: Polish + Push
-- Document all queries in `week-02/sql_snowflake.md`
-- Push to GitHub
-- **Deliverable:** `week-02/` folder with notes + query screenshots
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Spark SQL: `createOrReplaceTempView`, `spark.sql()` | 4 |
+| Tue | Partitioning: `repartition`, `coalesce`, partition pruning | 4 |
+| Wed | Caching: `persist`, `cache`, storage levels | 4 |
+| Thu | Catalyst optimizer, Spark UI, AQE basics | 4 |
+| Fri | Complex types: arrays, structs, `explode` | 4 |
+| Sat | Build ETL: 3 CSVs → join → aggregate → partitioned Parquet | 5 |
+| Sun | Push `week-04/` with optimized Spark job | 4 |
+
+**Deliverable:** Multi-source PySpark ETL with optimization notes
 
 ---
 
-## <a id="week-3"></a>Week 3: Docker + Git + Project Polish
-**Dates:** September 21 – 27  
-**Theme:** Containerize everything. Professional Git workflow.
+## <a id="phase-3"></a>Phase 3: Snowflake + Databricks Side-by-Side
+### Weeks 5–7: October 12 – November 1
 
-### Monday: Docker Deep Dive
-- Multi-stage builds, layer caching
-- `.dockerignore`
-- Docker networking basics
-- **Deliverable:** Optimized Dockerfile for weather script
+**Theme:** Job ads ask for BOTH. Learn both on the same dataset.
 
-### Tuesday: docker-compose
-- Multi-service local stacks
-- Postgres + your app running together
-- **Deliverable:** `docker-compose.yml` with Postgres and weather-app
+### Week 5: Snowflake Deep Dive
 
-### Wednesday: Git Advanced
-- Branching strategy (feature branches)
-- Rebasing, resolving merge conflicts
-- Conventional commits
-- **Deliverable:** Clean commit history on GitHub
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Snowflake setup: warehouse, database, TPC-H sample data | 4 |
+| Tue | Advanced SQL in Snowflake: window functions, CTEs | 4 |
+| Wed | Time travel, cloning, zero-copy cloning | 4 |
+| Thu | Query profiling, cost optimization, micro-partitions | 4 |
+| Fri | Iceberg tables in Snowflake | 4 |
+| Sat | Build analytical queries on TPC-H data | 5 |
+| Sun | Push `week-05/snowflake_notes.md` | 4 |
 
-### Thursday: Python Data Libraries
-- `polars` (modern pandas replacement)
-- `pydantic` for data validation
-- `pyarrow` for Parquet I/O
-- **Deliverable:** Script that reads CSV → validates with Pydantic → writes Parquet
+**Deliverable:** 5 complex analytical queries in Snowflake worksheet
 
-### Friday: Error Handling + Logging
-- Structured logging with `logging` module
-- Retry logic with `tenacity`
-- Idempotency patterns
-- **Deliverable:** Production-hardened weather script
+### Week 6: Databricks + Delta Lake
 
-### Saturday – Sunday: Project Polish
-- READMEs for every folder
-- Architecture diagrams (draw.io / Excalidraw)
-- Pre-commit hooks (`black`, `isort`)
-- **Deliverable:** Professional-looking GitHub profile
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Databricks Community Edition: clusters, notebooks, DBFS | 4 |
+| Tue | Migrate PySpark job to Databricks notebook | 4 |
+| Wed | Delta Lake: create tables, time travel, `MERGE INTO` | 4 |
+| Thu | Schema evolution, `OPTIMIZE`, `VACUUM` | 4 |
+| Fri | Unity Catalog: managed vs external tables | 4 |
+| Sat | Build medallion architecture: bronze → silver → gold | 5 |
+| Sun | Push `week-06/databricks_notes.md` + notebooks | 4 |
 
----
+**Deliverable:** Bronze + silver + gold Delta tables in Databricks
 
-## <a id="week-4"></a>Week 4: Apache Iceberg + Data Modeling
-**Dates:** September 28 – October 4  
-**Theme:** Master the modern table format. Design schemas.
+### Week 7: Compare + Contrast
 
-### Monday: Iceberg Architecture
-- Manifest files, manifest lists, metadata files
-- Snapshot isolation, time travel
-- **Deliverable:** Diagram of Iceberg metadata layer
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Run SAME query on Snowflake vs Databricks SQL | 4 |
+| Tue | Compare: Iceberg (Snowflake) vs Delta Lake (Databricks) | 4 |
+| Wed | Data modeling: star schema in BOTH platforms | 4 |
+| Thu | Cost comparison: Snowflake credits vs Databricks DBUs | 4 |
+| Fri | Write ADR: "When to use Snowflake vs Databricks" | 4 |
+| Sat | Build hybrid pipeline: Snowflake for warehouse, Databricks for Spark | 5 |
+| Sun | Push `week-07/comparison.md` | 4 |
 
-### Tuesday: Iceberg Catalogs
-- REST Catalog (Apache Polaris, Nessie)
-- Hive Metastore vs. Glue vs. REST
-- **Deliverable:** Spin up local Iceberg with DuckDB or Tabular free tier
-
-### Wednesday: Hidden Partitioning + Evolution
-- Partition evolution without rewrite
-- Schema evolution (add, drop, rename columns)
-- **Deliverable:** Demo of partition evolution
-
-### Thursday: Data Modeling
-- Dimensional modeling: stars, snowflakes
-- SCD Types 1, 2, 3
-- Data Vault vs. Kimball vs. OBT
-- **Deliverable:** Design schema for e-commerce analytics
-
-### Friday: Snowflake + Iceberg Integration
-- Iceberg tables in Snowflake
-- External tables, hybrid tables
-- **Deliverable:** Create Iceberg table, perform time-travel query
-
-### Saturday – Sunday: Documentation
-- `week-04/iceberg_notes.md`
-- Architecture decision record (ADR)
-- Push to GitHub
+**Deliverable:** Architecture decision record + hybrid pipeline concept
 
 ---
 
-## <a id="week-5"></a>Week 5: Airbyte — Ingestion Engineering
-**Dates:** October 5 – 11  
-**Theme:** Move data without writing custom code.
+## <a id="phase-4"></a>Phase 4: dbt — The Universal Transformer
+### Weeks 8–9: November 2 – 15
 
-### Monday: Airbyte Architecture
-- Sources, destinations, connectors
-- Sync modes: Full Refresh vs. Incremental
-- Append vs. Deduped
-- **Deliverable:** Deploy Airbyte OSS locally via Docker Compose
+**Theme:** dbt works on Snowflake AND Databricks. Learn it once, apply everywhere.
 
-### Tuesday: Build First Connection
-- PostgreSQL (source) → Snowflake (destination)
-- Full refresh sync
-- **Deliverable:** Working connection in Airbyte UI
+### Week 8: dbt Core on Snowflake
 
-### Wednesday: Incremental Sync + CDC
-- Cursor fields, incremental append
-- Debezium CDC connector
-- **Deliverable:** Incremental sync configured
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | `dbt init`, `profiles.yml`, connect to Snowflake | 4 |
+| Tue | Staging models, sources, refs | 4 |
+| Wed | Intermediate + mart models | 4 |
+| Thu | Tests: `unique`, `not_null`, `relationships` | 4 |
+| Fri | Jinja macros, `dbt-utils` | 4 |
+| Sat | Snapshots, documentation, `dbt docs` | 5 |
+| Sun | Push `week-08/dbt_snowflake/` | 4 |
 
-### Thursday: Custom Connectors
-- Airbyte CDK (Python)
-- Build connector for niche API
-- **Deliverable:** Custom source connector pushed to repo
+**Deliverable:** dbt project on Snowflake with tests + docs
 
-### Friday: dlt (data load tool)
-- Lightweight Python-first alternative
-- When to use dlt vs. Airbyte
-- **Deliverable:** Same pipeline built with dlt for comparison
+### Week 9: dbt on Databricks + Advanced
 
-### Saturday – Sunday: Documentation
-- `week-05/ingestion_notes.md`
-- Architecture diagram
-- Push to GitHub
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Same dbt project, switch profile to Databricks | 4 |
+| Tue | Compare: dbt on Snowflake vs dbt on Databricks | 4 |
+| Wed | dbt Mesh: cross-project references | 4 |
+| Thu | Slim CI, pre-commit hooks | 4 |
+| Fri | dbt Cloud vs Core | 4 |
+| Sat | Build unified dbt project that runs on BOTH | 5 |
+| Sun | Push `week-09/dbt_unified/` | 4 |
+
+**Deliverable:** Single dbt project deployable to Snowflake OR Databricks
 
 ---
 
-## <a id="week-6"></a>Week 6: dbt Core — Transformation
-**Dates:** October 12 – 18  
-**Theme:** SQL-based data modeling. The industry standard.
+## <a id="phase-5"></a>Phase 5: Ingestion + Orchestration
+### Weeks 10–11: November 16 – 29
 
-### Monday: dbt Project Setup
-- `dbt init`, `profiles.yml`, `dbt_project.yml`
-- Connect dbt to Snowflake
-- **Deliverable:** `dbt debug` passes
+**Theme:** Move data. Schedule pipelines. The operational layer.
 
-### Tuesday: Models
-- Staging models (1:1 with raw)
-- Intermediate models (business logic)
-- Mart models (aggregated, dimensional)
-- **Deliverable:** 5 staging + 3 intermediate + 2 mart models
+### Week 10: Airbyte + Ingestion
 
-### Wednesday: Sources, Refs, Macros
-- `sources.yml`, `{{ ref() }}`, `{{ source() }}`
-- Jinja macros for reusable logic
-- **Deliverable:** 2 reusable macros
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Deploy Airbyte locally, architecture overview | 4 |
+| Tue | Postgres → Snowflake connection | 4 |
+| Wed | CDC with Debezium | 4 |
+| Thu | API ingestion, custom connectors | 4 |
+| Fri | dlt (data load tool) comparison | 4 |
+| Sat | Build ingestion layer for capstone dataset | 5 |
+| Sun | Push `week-10/ingestion/` | 4 |
 
-### Thursday: Tests + Docs
-- Generic tests: `unique`, `not_null`, `relationships`
-- Custom tests, `dbt-expectations`
-- `dbt docs generate`, `dbt docs serve`
-- **Deliverable:** 100% test coverage on mart models + hosted docs
+**Deliverable:** 3 sources syncing to Snowflake via Airbyte
 
-### Friday: Snapshots
-- SCD Type 2 with dbt snapshots
-- `dbt snapshot` command
-- **Deliverable:** Snapshot for slowly changing dimension
+### Week 11: Apache Airflow
 
-### Saturday – Sunday: Polish
-- `week-06/dbt_project/` pushed to GitHub
-- README with model diagram
-- `dbt docs` screenshot
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Deploy Airflow, first DAGs | 4 |
+| Tue | TaskFlow API, sensors, task groups | 4 |
+| Wed | Airflow + dbt (Cosmos) | 4 |
+| Thu | Retries, SLAs, Slack alerts | 4 |
+| Fri | Backfills, catchup | 4 |
+| Sat | Build DAG: Airbyte → dbt → email alert | 5 |
+| Sun | Push `week-11/dags/` | 4 |
+
+**Deliverable:** Production DAG orchestrating ingestion → transformation
 
 ---
 
-## <a id="week-7"></a>Week 7: dbt Advanced + Airbyte Integration
-**Dates:** October 19 – 25  
-**Theme:** Scale dbt. Connect ingestion to transformation.
+## <a id="phase-6"></a>Phase 6: Infrastructure + Data Quality
+### Weeks 12–13: November 30 – December 13
 
-### Monday: dbt Mesh
-- Cross-project references
-- Contracts, versions
-- **Deliverable:** Split project into 2 linked projects
+**Theme:** Provision as code. Trust your data.
 
-### Tuesday: Slim CI
-- State comparison, deferral
-- Only run changed models
-- **Deliverable:** CI configured to run `dbt build --select state:modified+`
+### Week 12: Terraform + Cloud
 
-### Wednesday: Environments
-- dev / staging / prod setup
-- `profiles.yml` for multiple environments
-- **Deliverable:** Deploy to dbt Cloud free tier
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Terraform basics: HCL, providers, state | 4 |
+| Tue | AWS: S3, IAM roles | 4 |
+| Wed | Snowflake provider: warehouse, database, roles | 4 |
+| Thu | Databricks provider: clusters, jobs | 4 |
+| Fri | GitHub Actions + Terraform CI/CD | 4 |
+| Sat | Provision full stack: S3 + IAM + Snowflake + Databricks config | 5 |
+| Sun | Push `week-12/terraform/` | 4 |
 
-### Thursday: Airbyte → dbt Pipeline
-- Airbyte syncs raw data
-- dbt transforms raw → staging → mart
-- **Deliverable:** End-to-end pipeline: source → warehouse → model
+**Deliverable:** Terraform modules for both platforms
 
-### Friday: Pre-commit + Linting
-- `sqlfluff` for SQL linting
-- `black`, `isort` for Python
-- GitHub Actions for CI
-- **Deliverable:** Pre-commit hooks running on every commit
+### Week 13: Great Expectations + Observability
 
-### Saturday – Sunday: Documentation
-- `week-07/` with architecture diagram
-- Blog draft: "Building a dbt pipeline from scratch"
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | GX: expectations, validators, checkpoints | 4 |
+| Tue | GX + dbt integration | 4 |
+| Wed | GX on Snowflake tables | 4 |
+| Thu | GX on Delta Lake tables | 4 |
+| Fri | DataHub / OpenMetadata for lineage | 4 |
+| Sat | Quality-gated pipeline: dbt → GX → alert | 5 |
+| Sun | Push `week-13/quality/` | 4 |
 
----
-
-## <a id="week-8"></a>Week 8: Great Expectations — Data Quality
-**Dates:** October 26 – November 1  
-**Theme:** Trust your data. Validate at every stage.
-
-### Monday: GX Architecture
-- Expectations, Validators, Checkpoints, Data Docs
-- Install GX, connect to Snowflake
-- **Deliverable:** First expectation suite
-
-### Tuesday: Built-in + Custom Expectations
-- `expect_column_values_to_not_be_null`
-- Custom expectations for business rules
-- **Deliverable:** 10 expectations for your mart table
-
-### Wednesday: GX + dbt Integration
-- Run GX after dbt models
-- `dbt test` vs. GX checkpoints
-- **Deliverable:** Pipeline: dbt run → GX checkpoint
-
-### Thursday: Checkpoint Actions
-- Slack/email alerts on failure
-- Validation operators
-- **Deliverable:** Alert on data quality failure
-
-### Friday: Data Profiling
-- `OnboardingDataAssistant`
-- Auto-generated data docs
-- **Deliverable:** Profile of raw data
-
-### Saturday – Sunday: Quality-Gated Pipeline
-- Airbyte → dbt → GX → alert
-- `week-08/` documentation
-- Push to GitHub
+**Deliverable:** Data quality checks on BOTH Snowflake and Databricks
 
 ---
 
-## <a id="week-9"></a>Week 9: Apache Airflow — Orchestration
-**Dates:** November 2 – 8  
-**Theme:** Schedule and manage pipelines.
+## <a id="phase-7"></a>Phase 7: Streaming
+### Weeks 14–15: December 14 – 27
 
-### Monday: Airflow Architecture
-- Scheduler, webserver, worker, metadata DB
-- Deploy with Docker Compose
-- **Deliverable:** Airflow UI running locally
+**Theme:** Real-time data. The skill that separates mid-level from senior.
 
-### Tuesday: First DAGs
-- `PythonOperator`, `BashOperator`
-- TaskFlow API
-- **Deliverable:** 3 simple DAGs
+### Week 14: Kafka + Spark Streaming
 
-### Wednesday: Sensors + Dependencies
-- File sensors, external task sensors
-- Task groups, dynamic task mapping
-- **Deliverable:** DAG with sensor + dynamic tasks
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Kafka: topics, partitions, producers, consumers | 4 |
+| Tue | Python producer/consumer with `confluent-kafka` | 4 |
+| Wed | Kafka Connect: Debezium CDC | 4 |
+| Thu | Spark Structured Streaming: `readStream`, `writeStream` | 4 |
+| Fri | Delta Live Tables: declarative streaming | 4 |
+| Sat | Build streaming pipeline: Postgres → Kafka → Spark → Delta | 5 |
+| Sun | Push `week-14/streaming/` | 4 |
 
-### Thursday: Airflow + dbt
-- `BashOperator` for dbt commands
-- dbt Cosmos integration
-- **Deliverable:** DAG that runs dbt models
+**Deliverable:** Hybrid batch + streaming pipeline
 
-### Friday: Retries + SLAs
-- Retry logic, timeouts
-- Email/Slack notifications
-- **Deliverable:** Production-hardened DAG
+### Week 15: CI/CD + Polish
 
-### Saturday – Sunday: Documentation
-- `week-09/dags/` pushed to GitHub
-- DAG diagram
-- README with run instructions
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | GitHub Actions for dbt + Terraform | 4 |
+| Tue | Pre-commit hooks across all repos | 4 |
+| Wed | Monitoring: Spark UI, Airflow metrics | 4 |
+| Thu | Cost optimization: Snowflake + Databricks | 4 |
+| Fri | Security: Unity Catalog / Lake Formation basics | 4 |
+| Sat | Final repo cleanup, READMEs, architecture diagrams | 5 |
+| Sun | Push everything | 4 |
 
----
-
-## <a id="week-10"></a>Week 10: Airflow Production + Cosmos
-**Dates:** November 9 – 15  
-**Theme:** Enterprise-grade orchestration.
-
-### Monday: Variables + Connections
-- Airflow variables, connections UI
-- Secrets backend (AWS SSM, HashiCorp Vault)
-- **Deliverable:** Secure connection management
-
-### Tuesday: Cosmos Deep Dive
-- dbt models as individual Airflow tasks
-- Model-level observability
-- **Deliverable:** Cosmos DAG with per-model retries
-
-### Wednesday: Monitoring
-- Grafana, StatsD, Prometheus basics
-- DAG metrics dashboard
-- **Deliverable:** Dashboard showing DAG metrics
-
-### Thursday: Backfills + External Triggers
-- Backfill a month of data
-- External triggers, catchup
-- **Deliverable:** Backfill DAG
-
-### Friday: Airflow Comparison
-- Airflow vs. Dagster vs. Prefect vs. Kestra
-- Architecture decision record
-- **Deliverable:** ADR document
-
-### Saturday – Sunday: Production Airflow
-- 3 DAGs with monitoring, alerts, backfill
-- `week-10/` documentation
-- Push to GitHub
+**Deliverable:** Production-ready CI/CD across all projects
 
 ---
 
-## <a id="week-11"></a>Week 11: Terraform — Infrastructure as Code
-**Dates:** November 16 – 22  
-**Theme:** Provision cloud resources reproducibly.
+## <a id="phase-8"></a>Phase 8: Capstone + Job Hunt
+### Weeks 16–18: December 28 – January 17, 2027
 
-### Monday: Terraform Basics
-- HCL syntax, providers, resources
-- Variables, outputs, state
-- **Deliverable:** Local Terraform install, basic AWS resources
+**Theme:** Build the flagship. Get hired.
 
-### Tuesday: Modules + Remote State
-- Modular project structure
-- S3 backend for state
-- **Deliverable:** Modular Terraform project
+### Week 16: Capstone Design + Build
 
-### Wednesday: Snowflake Provider
-- Warehouses, databases, roles, users
-- Terraform your Snowflake setup
-- **Deliverable:** Snowflake infrastructure as code
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Architecture: Airbyte → Snowflake + Databricks → dbt → Airflow | 4 |
+| Tue | Terraform all infrastructure | 4 |
+| Wed | Build ingestion (Airbyte + API + CDC) | 4 |
+| Thu | Build dbt models (staging → intermediate → mart) | 4 |
+| Fri | Integrate Airflow DAG | 4 |
+| Sat | Add GX + alerts | 5 |
+| Sun | Test end-to-end 5+ times | 4 |
 
-### Thursday: AWS Provider
-- S3, IAM, VPC basics
-- S3 bucket + IAM role for Airflow
-- **Deliverable:** AWS infrastructure as code
+**Deliverable:** Working end-to-end pipeline on BOTH platforms
 
-### Friday: CI/CD for Infrastructure
-- GitHub Actions: `terraform plan` on PR, `terraform apply` on merge
-- **Deliverable:** CI/CD for infrastructure
+### Week 17: Polish + Content
 
-### Saturday – Sunday: Infra Repo
-- `week-11/terraform/` pushed to GitHub
-- README with architecture diagram
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Add streaming component | 4 |
+| Tue | Build Streamlit dashboard | 4 |
+| Wed | Write blog: "Snowflake vs Databricks: A Data Engineer's Guide" | 4 |
+| Thu | Record 3-minute demo video | 4 |
+| Fri | Documentation: architecture, runbook, data dictionary | 4 |
+| Sat | Update LinkedIn, GitHub profile | 5 |
+| Sun | Resume: 1 page, metrics-focused | 4 |
 
----
+**Deliverable:** Professional portfolio + blog + video
 
-## <a id="week-12"></a>Week 12: Streaming + CI/CD Polish
-**Dates:** November 23 – 29  
-**Theme:** Real-time data. Automate everything.
+### Week 18: Apply
 
-### Monday: Kafka Fundamentals
-- Topics, partitions, brokers, consumers
-- Local Kafka via Docker
-- **Deliverable:** Kafka running locally
+| Day | Task | Hours |
+|-----|------|-------|
+| Mon | Apply to 10 jobs | 4 |
+| Tue | Apply to 10 jobs + follow-ups | 4 |
+| Wed | Interview prep: SQL (5 problems) | 4 |
+| Thu | System design: whiteboard your capstone | 4 |
+| Fri | Behavioral practice | 4 |
+| Sat | Apply to 10 jobs + networking | 5 |
+| Sun | Rest + plan January follow-ups | 4 |
 
-### Tuesday: Producers + Consumers
-- Python producer/consumer with `confluent-kafka`
-- Consumer groups
-- **Deliverable:** Working producer/consumer pair
-
-### Wednesday: Kafka Connect + CDC
-- Debezium CDC source
-- S3 sink connector
-- **Deliverable:** CDC from Postgres to Kafka to S3
-
-### Thursday: Stream Processing
-- Flink SQL basics or RisingWave
-- Simple aggregation on streaming data
-- **Deliverable:** Streaming aggregation query
-
-### Friday: CI/CD Polish
-- GitHub Actions for dbt + Terraform
-- Pre-commit hooks across all repos
-- **Deliverable:** Automated CI/CD pipeline
-
-### Saturday – Sunday: Hybrid Pipeline
-- Batch ELT + streaming component
-- `week-12/` documentation
-- Push to GitHub
+**Deliverable:** 30+ applications sent
 
 ---
 
-## <a id="week-13"></a>Week 13: Capstone Design
-**Dates:** November 30 – December 6  
-**Theme:** Design the flagship project.
+## The Two Tech Stacks (From the Video)
 
-### Monday: Requirements + Architecture
-- Define data sources, transformations, outputs
-- Draw architecture diagram
-- **Deliverable:** Architecture diagram in draw.io
-
-### Tuesday: Schema Design
-- Raw, staging, intermediate, mart layers
-- dbt model structure
-- **Deliverable:** Complete schema design
-
-### Wednesday: Terraform All Infrastructure
-- Snowflake warehouse, database, roles
-- S3 buckets, IAM roles
-- **Deliverable:** All infra provisioned via Terraform
-
-### Thursday: Airbyte Connections
-- Postgres CDC → Snowflake
-- API → Snowflake
-- CSV → Snowflake
-- **Deliverable:** All connections configured
-
-### Friday: dbt Project Skeleton
-- Initialize dbt project
-- Create all model files (empty or stubbed)
-- **Deliverable:** dbt project structure ready
-
-### Saturday – Sunday: Documentation
-- `week-13/` with full capstone design
-- README with architecture, schema, runbook
-
----
-
-## <a id="week-14"></a>Week 14: Capstone Build
-**Dates:** December 7 – 13  
-**Theme:** Build the end-to-end pipeline.
-
-### Monday: Build Ingestion Layer
-- Airbyte syncs running
-- Verify data landing in Snowflake raw tables
-- **Deliverable:** Raw data confirmed in warehouse
-
-### Tuesday: Build dbt Models
-- Staging models (all passing tests)
-- Intermediate models
-- **Deliverable:** Staging + intermediate complete
-
-### Wednesday: Build Mart Models
-- Final aggregated tables
-- All tests passing
-- **Deliverable:** Mart models with 100% test coverage
-
-### Thursday: Integrate Airflow
-- DAG orchestrating: Airbyte → dbt → GX
-- Retries, alerts, SLAs configured
-- **Deliverable:** Full DAG running end-to-end
-
-### Friday: Add Great Expectations
-- Checkpoints at raw and mart layers
-- Alerts on failure
-- **Deliverable:** Quality-gated pipeline
-
-### Saturday – Sunday: Testing + Debugging
-- Run full pipeline 5+ times
-- Fix edge cases, idempotency issues
-- **Deliverable:** Stable, repeatable pipeline
-
----
-
-## <a id="week-15"></a>Week 15: Capstone Polish + Blog
-**Dates:** December 14 – 20  
-**Theme:** Make it shine. Tell the world.
-
-### Monday: Add Iceberg Features
-- Configure Iceberg tables
-- Time-travel queries
-- Schema evolution demo
-- **Deliverable:** Iceberg features documented
-
-### Tuesday: Build Dashboard
-- Streamlit or Hex dashboard on mart tables
-- KPIs: revenue, orders, customers
-- **Deliverable:** Live dashboard
-
-### Wednesday: Documentation
-- Architecture diagrams
-- Runbooks (how to debug, how to backfill)
-- Data dictionary
-- **Deliverable:** Complete project docs
-
-### Thursday: Demo Video
-- 3-minute Loom walking through the pipeline
-- Show: source → warehouse → model → dashboard
-- **Deliverable:** Video uploaded (unlisted YouTube or Loom)
-
-### Friday: Write Blog Post
-- "Building a Modern Data Stack from Scratch"
-- Technical deep-dive on one component
-- **Deliverable:** Blog post published (Medium, Dev.to, or personal site)
-
-### Saturday – Sunday: Final Polish
-- All repos cleaned up
-- READMEs professional
-- GitHub profile updated
-
----
-
-## <a id="week-16"></a>Week 16: Portfolio + Job Applications
-**Dates:** December 21 – 27  
-**Theme:** Get hired.
-
-### Monday: Resume
-- 1 page, metrics-focused
-- Use these bullets:
-  - "Built end-to-end ELT pipeline ingesting 1M+ rows/day from PostgreSQL and REST APIs into Snowflake using Airbyte, orchestrated with Apache Airflow"
-  - "Implemented dbt models with 95%+ test coverage and Great Expectations data quality checks"
-  - "Provisioned cloud infrastructure (S3, Snowflake) using Terraform, enabling environment parity across dev/staging/prod"
-- **Deliverable:** Resume in PDF + Markdown
-
-### Tuesday: LinkedIn
-- Headline: "Aspiring Data Engineer | Snowflake · dbt · Airflow · Iceberg"
-- About section with project summary
-- Featured section with repo links + blog
-- **Deliverable:** Updated LinkedIn profile
-
-### Wednesday: GitHub Profile
-- Pin 3 best repos
-- Profile README (optional but impressive)
-- **Deliverable:** Professional GitHub profile
-
-### Thursday – Friday: Apply
-- 5 applications/day
-- Target: Junior Data Engineer, Analytics Engineer, Data Analyst (pipeline focus)
-- Job boards: LinkedIn, Indeed, Data Engineering Jobs
-- **Deliverable:** 10+ applications sent
-
-### Saturday: Interview Prep
-- SQL: 5 problems on DataLemur
-- System design: Draw your capstone architecture from memory
-- Behavioral: Practice "Tell me about your capstone project"
-- **Deliverable:** Confidence in whiteboarding
-
-### Sunday: Rest + Plan
-- Review what you built
-- Identify weak spots for January follow-up
-- **Deliverable:** Personal retrospectives document
+| Stack A: Analytics-First | Stack B: Big Data-First | You Learn Both |
+|-------------------------|------------------------|---------------|
+| Snowflake | Databricks | ✅ Week 5–7 |
+| dbt | PySpark | ✅ Week 3–4, 8–9 |
+| SQL-first | Python-first | ✅ Week 1–2 |
+| Airflow | Airflow | ✅ Week 11 |
+| Iceberg | Delta Lake | ✅ Week 5–7 |
+| Great Expectations | Great Expectations | ✅ Week 13 |
 
 ---
 
 ## Weekly Time Commitment
 
-| Day | Hours | Typical Schedule |
-|-----|-------|-----------------|
-| Monday–Friday | 3.5–4 hrs/day | 6:00–10:00 PM |
-| Saturday | 5–6 hrs | Morning block |
-| Sunday | 3–4 hrs | Morning/afternoon |
+| Day | Hours | Focus |
+|-----|-------|-------|
+| Monday–Friday | 3.5–4 hrs/day | New concepts + coding |
+| Saturday | 5–6 hrs | Deep work, projects |
+| Sunday | 3–4 hrs | Review, polish, push |
 | **Weekly Total** | **25 hrs** | |
 
 ---
 
-## Job-Ready Checklist (By December 31)
+## Job-Ready Checklist (By January 31, 2027)
 
-- [ ] GitHub: 3+ repos with clean code, architecture diagrams, READMEs
-- [ ] Capstone: End-to-end ELT pipeline with documentation
-- [ ] Blog: 1 technical write-up about your architecture
-- [ ] SQL: 50+ problems solved (LeetCode / DataLemur)
-- [ ] Certification: Snowflake Data Engineer badge (recommended)
-- [ ] LinkedIn: Updated headline, project posts
-- [ ] Resume: 1 page, metrics-focused bullets
-- [ ] Demo: 2–3 minute video walking through your pipeline
+- [ ] GitHub: 5+ repos (Python, PySpark, Snowflake, Databricks, dbt, Terraform)
+- [ ] Capstone: End-to-end pipeline on BOTH Snowflake and Databricks
+- [ ] Blog: "Snowflake vs Databricks: A Data Engineer's Perspective"
+- [ ] SQL: 50+ problems solved
+- [ ] PySpark: Can write complex DataFrame operations from memory
+- [ ] Snowflake: Comfortable with warehouses, Iceberg, cost optimization
+- [ ] Databricks: Comfortable with notebooks, Delta Lake, Unity Catalog
+- [ ] dbt: Project deployable to both platforms
+- [ ] LinkedIn: Updated headline mentioning both stacks
+- [ ] Resume: 1 page, metrics-focused, both Snowflake + Databricks listed
+- [ ] Demo: 3-minute video
 - [ ] Applications: 50+ jobs applied
 
 ---
 
-*Roadmap generated September 2026. Stack reflects current industry standards.*
+## Certifications to Consider
+
+| Certification | Platform | When to Take |
+|--------------|----------|-------------|
+| Snowflake SnowPro Core | Snowflake | After Week 5 |
+| Databricks Data Engineer Associate | Databricks | After Week 6 |
+| AWS Cloud Practitioner | AWS | After Week 12 |
+
+---
+
+## Your First Step — Do This Today
+
+1. Sign up for [Databricks Community Edition](https://www.databricks.com/try-databricks) (free)
+2. Sign up for [Snowflake free trial](https://signup.snowflake.com/) (if not done)
+3. Install PySpark: `pip install pyspark`
+4. Verify: `python -c "from pyspark.sql import SparkSession; print('Ready')"`
+5. Create `week-03/pyspark_intro.py` — your first Spark job
+
+---
+
+*Roadmap based on Data with Baraa's analysis of 22,000 real job ads. Combined stack for maximum job market coverage.*
