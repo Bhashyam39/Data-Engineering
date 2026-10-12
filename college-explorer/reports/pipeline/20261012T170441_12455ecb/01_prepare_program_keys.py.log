@@ -1,0 +1,11 @@
+{
+  "source_zip": "Most-Recent-Cohorts-Field-of-Study_06102026.zip",
+  "raw_rows": 227980,
+  "key_eligible_rows": 220960,
+  "quarantined_rows": 7020,
+  "repeated_key_groups_after_validation": 0,
+  "rows_in_repeated_key_groups": 0
+}
+
+Files saved to: C:\Users\bhash\OneDrive\Desktop\Data-Engineering\college-explorer\data\silver\programs\Most-Recent-Cohorts-Field-of-Study_06102026\key_validation_v1
+No repeated keys remain among key-eligible records.

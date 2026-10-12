@@ -1,0 +1,40 @@
+{
+  "institution_input": "data\\silver\\institutions\\20261011T053624_6b654257\\cleaning_v1\\institutions_cleaned.parquet",
+  "program_input": "data\\silver\\programs\\Most-Recent-Cohorts-Field-of-Study_06102026\\outcome_cleaning_v1\\programs_cleaned.parquet",
+  "institutions": 6243,
+  "program_input_rows": 220960,
+  "matched_program_rows": 216601,
+  "unmatched_program_rows": 4359,
+  "institutions_with_matching_programs": 5650,
+  "institutions_without_matching_programs": 593,
+  "unmatched_institution_ids": 477,
+  "row_reconciliation_passed": true
+}
+
+Files saved to: C:\Users\bhash\OneDrive\Desktop\Data-Engineering\college-explorer\data\silver\relationships\20261011T053624_6b654257_fos_06102026_v1
+
+Example matched records:
+ unitid                     name state                                                                 CIPDESC          CREDDESC
+ 100654 Alabama A & M University    AL                                                        Animal Sciences. Bachelor's Degree
+ 100654 Alabama A & M University    AL                                            Food Science and Technology. Bachelor's Degree
+ 100654 Alabama A & M University    AL                                            Food Science and Technology.   Master's Degree
+ 100654 Alabama A & M University    AL                                            Food Science and Technology.   Doctoral Degree
+ 100654 Alabama A & M University    AL Agricultural/Animal/Plant/Veterinary Science and Related Fields, Other. Bachelor's Degree
+ 100654 Alabama A & M University    AL Agricultural/Animal/Plant/Veterinary Science and Related Fields, Other.   Master's Degree
+ 100654 Alabama A & M University    AL Agricultural/Animal/Plant/Veterinary Science and Related Fields, Other.   Doctoral Degree
+ 100654 Alabama A & M University    AL                                                               Forestry. Bachelor's Degree
+ 100654 Alabama A & M University    AL                           City/Urban, Community, and Regional Planning. Bachelor's Degree
+ 100654 Alabama A & M University    AL                           City/Urban, Community, and Regional Planning.   Master's Degree
+
+Example unmatched institutions:
+ unitid                                          INSTNM
+ 100937                     Birmingham-Southern College
+ 103954                       Arizona Academy of Beauty
+ 105367                       Ottawa University-Phoenix
+ 106315              Arkansas Beauty School-Little Rock
+ 106360                         Arthur's Beauty College
+ 106892 Eastern College of Health Vocations-Little Rock
+ 108852   American Academy of Dramatic Arts-Los Angeles
+ 109086                   American Conservatory Theater
+ 109730          Associated Technical College-San Diego
+ 110918                    California Christian College

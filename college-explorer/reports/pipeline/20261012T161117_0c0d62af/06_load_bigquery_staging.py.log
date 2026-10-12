@@ -1,0 +1,15 @@
+Loaded: college-510602.college_staging.institutions
+Loaded: college-510602.college_staging.programs
+{
+  "institution_rows": 6243,
+  "program_rows": 216601,
+  "null_institution_keys": 0,
+  "null_program_keys": 0,
+  "duplicate_institution_groups": 0,
+  "duplicate_program_groups": 0,
+  "unmatched_program_rows": 0
+}
+Validation: PASSED
+
+Status: completed
+Report: C:\Users\bhash\OneDrive\Desktop\Data-Engineering\college-explorer\reports\bigquery_load_20261012T161213_8d8b4ff0.json

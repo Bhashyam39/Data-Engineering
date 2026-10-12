@@ -1,0 +1,58 @@
+{
+  "transformation_version": "outcome_cleaning_v1",
+  "input_file": "data\\silver\\programs\\Most-Recent-Cohorts-Field-of-Study_06102026\\key_validation_v1\\programs_candidate.parquet",
+  "input_rows": 220960,
+  "metrics": {
+    "debt_all_stgp_any_mdn": {
+      "source_column": "DEBT_ALL_STGP_ANY_MDN",
+      "status_counts": {
+        "privacy_suppressed": 158345,
+        "reported": 38988,
+        "not_available": 23627
+      },
+      "null_count": 181972
+    },
+    "earn_mdn_1yr": {
+      "source_column": "EARN_MDN_1YR",
+      "status_counts": {
+        "privacy_suppressed": 151493,
+        "reported": 51687,
+        "not_available": 17780
+      },
+      "null_count": 169273
+    },
+    "earn_mdn_4yr": {
+      "source_column": "EARN_MDN_4YR",
+      "status_counts": {
+        "privacy_suppressed": 163788,
+        "reported": 57172
+      },
+      "null_count": 163788
+    },
+    "earn_mdn_5yr": {
+      "source_column": "EARN_MDN_5YR",
+      "status_counts": {
+        "privacy_suppressed": 153762,
+        "reported": 49418,
+        "not_available": 17780
+      },
+      "null_count": 171542
+    }
+  },
+  "output_rows": 220960
+}
+
+Files saved to: data\silver\programs\Most-Recent-Cohorts-Field-of-Study_06102026\outcome_cleaning_v1
+
+Example cleaned records:
+ UNITID CIPCODE  CREDLEV  earn_mdn_1yr earn_mdn_1yr_status
+ 100654    0109        3          <NA>  privacy_suppressed
+ 100654    0110        3          <NA>  privacy_suppressed
+ 100654    0110        5          <NA>  privacy_suppressed
+ 100654    0110        6          <NA>  privacy_suppressed
+ 100654    0199        3          <NA>  privacy_suppressed
+ 100654    0199        5          <NA>  privacy_suppressed
+ 100654    0199        6          <NA>  privacy_suppressed
+ 100654    0305        3          <NA>  privacy_suppressed
+ 100654    0403        3          <NA>  privacy_suppressed
+ 100654    0403        5          <NA>  privacy_suppressed

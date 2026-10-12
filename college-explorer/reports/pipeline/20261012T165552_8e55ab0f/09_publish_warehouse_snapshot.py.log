@@ -1,0 +1,15 @@
+Published: college-510602.college_marts.institutions
+Published: college-510602.college_marts.programs
+Published: college-510602.college_marts.cip_fields
+Published: college-510602.college_marts.credential_levels
+Published: college-510602.college_marts.program_catalog
+{
+  "program_rows": 216601,
+  "institutions_with_programs": 5650,
+  "wrong_version_rows": 0
+}
+Publication validation: PASSED
+
+Published version: s20261012T165552_8e55ab0f
+Status: completed
+Report: C:\Users\bhash\OneDrive\Desktop\Data-Engineering\college-explorer\reports\publications\20261012T165717_e1ca42b8.json

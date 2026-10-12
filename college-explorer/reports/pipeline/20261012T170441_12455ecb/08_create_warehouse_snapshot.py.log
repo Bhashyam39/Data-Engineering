@@ -1,0 +1,15 @@
+Created: college-510602.college_history.institutions_s20261012T170441_12455ecb
+Created: college-510602.college_history.programs_s20261012T170441_12455ecb
+Created: college-510602.college_history.cip_fields_s20261012T170441_12455ecb
+Created: college-510602.college_history.credential_levels_s20261012T170441_12455ecb
+{
+  "institutions": 6243,
+  "programs": 216601,
+  "cip_fields": 420,
+  "credential_levels": 9
+}
+Snapshot validation: PASSED
+
+Snapshot ID: s20261012T170441_12455ecb
+Status: completed
+Report: C:\Users\bhash\OneDrive\Desktop\Data-Engineering\college-explorer\reports\snapshots\s20261012T170441_12455ecb.json

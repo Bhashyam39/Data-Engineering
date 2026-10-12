@@ -1,0 +1,22 @@
+{
+  "transformation_version": "institution_cleaning_v1",
+  "source_run_id": "20261011T053624_6b654257",
+  "input_rows": 6243,
+  "output_rows": 6243,
+  "unique_institutions": 6243,
+  "checksums_verified": 63,
+  "null_counts": {
+    "unitid": 0,
+    "name": 0,
+    "city": 0,
+    "state": 0,
+    "url": 8,
+    "ownership": 0,
+    "student_size": 781,
+    "admission_rate": 4334,
+    "tuition_in_state": 2642,
+    "tuition_out_of_state": 2642
+  }
+}
+
+Files saved to: data\silver\institutions\20261011T053624_6b654257\cleaning_v1
